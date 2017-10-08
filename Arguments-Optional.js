@@ -15,11 +15,27 @@ If either argument isn't a valid number, return undefined.
 */
 
 function addTogether() {
-    return false;
-  }
+    var argA = arguments[0];
+    var argB = arguments[1];
 
-  console.log(addTogether(2, 3)); // should return 5.
-  console.log(addTogether(2)(3)); // should return 5.
-  console.log(addTogether("http://bit.ly/IqT6zt")); // should return undefined.
-  console.log(addTogether(2, "3")); // should return undefined.
-  console.log(addTogether(2)([3])); // should return undefined.
+    function isNumber(isN) {
+        if (typeof (isN) !== "number") return false;
+        return true;
+    }
+
+    if (!isNumber(argA)) return undefined;
+
+    if (!argB) return (argB) => {
+        if (isNumber(argB)) return argB + argA;
+        return undefined;
+    }
+
+    if (!isNumber(argB)) return undefined;
+    return argA + argB;
+}
+
+console.log(addTogether(2, 3)); // should return 5.
+console.log(addTogether(2)(3)); // should return 5.
+console.log(addTogether("http://bit.ly/IqT6zt")); // should return undefined.
+console.log(addTogether(2, "3")); // should return undefined.
+console.log(addTogether(2)([3])); // should return undefined.
