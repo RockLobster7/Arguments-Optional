@@ -25,8 +25,8 @@ function addTogether() {
 
     if (!isNumber(argA)) return undefined;
 
-    if (!argB) return (argB) => {
-        if (isNumber(argB)) return argB + argA;
+    if (!argB) return (arg) => {
+        if (isNumber(arg)) return arg + argA;
         return undefined;
     }
 
